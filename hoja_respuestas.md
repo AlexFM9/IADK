@@ -32,7 +32,7 @@
 - [x] **Paso 1:** Añadida la operación atómica `turno(OpFeedbackParam<Integer> n)` en el artefacto `Counter.java` para incrementar y devolver el contador en una sola llamada.
 - [x] **Paso 2:** Ejecutado *AppLinker (AgentSpeak)* en el IADK para vincular la operación `turno` al modelo `specification.xml`.
 - [ ] **Paso 3:** Modificación del plan `greet` en `AgentSpeak code` para decidir `mood(happy)` o `mood(grumpy)` según paridad del turno.
-- [ ] **Paso 4:** Creación del *Deploy Diagram* (`pareja` con 2 instancias de `Greeter`).
+- [ ] **Paso 4:** Creación del *Deploy Diagram* (`pareja` con 2 instancias de `Greeter`). La direccion de la fecha no pudo ser modificada. El initial state no se pudo configurar para que los agentes se saludaran.
 - [ ] **Paso 5:** Generación de código y verificación de traza con ambos agentes.
 
 ### Bloque 2: Saludos que dependen del ánimo
