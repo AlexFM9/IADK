@@ -36,7 +36,20 @@
 - [ ] **Paso 5:** Generación de código y verificación de traza con ambos agentes.
 
 ### Bloque 2: Saludos que dependen del ánimo
-- [ ] *Pendiente de inicio.*
+- [ ] [Cartago] Workspace env created.
+[Cartago] artifact counter: tools.Counter() at env created.
+[greeter2] join workspace /main/env: done
+[greeter1] join workspace /main/env: done
+[greeter2] focusing on artifact counter (at workspace /main/env) using namespace default
+[greeter1] focusing on artifact counter (at workspace /main/env) using namespace default
+[greeter2] focus on counter: done
+[greeter1] focus on counter: done
+[greeter1] Me despierto grumpy
+[greeter2] Me despierto happy
+[greeter2] Hola, greeter1. Que alegria verte!
+[greeter1] Hmpf... hola, greeter2.
+[greeter1] greeter2 me ha respondido de humor happy
+[greeter2] greeter1 me ha respondido de humor grumpy
 
 ### Bloque 3: Workspace y organización
 - [ ] *Pendiente de inicio.*
@@ -69,18 +82,18 @@ Despues:
 ### Pregunta 2 (Bloque 2)
 > **Enunciado:** Cuando llega un saludo, ¿cómo elige Jason cuál de las dos reglas de `+saludo` ejecuta? ¿Qué pasaría si el agente creyera `mood(sleepy)` y no hubiera regla para ese ánimo?
 
-**Respuesta preliminar / Guía:**
+**Respuesta:**
 Jason busca en su plan library todos los planes relevantes cuyo disparador coincida con el evento `+saludo(_)`. A continuación, evalúa el contexto (guarda) de cada uno contra su base de creencias actual (`mood(happy)` o `mood(grumpy)`) para seleccionar el plan aplicable. 
 
-Si el agente tuviese la creencia `mood(sleepy)` y no existiese ninguna regla cuyo contexto admita `mood(sleepy)`, ninguna regla sería aplicable y el evento se descartaría (o generaría un fallo si fuese un subobjetivo).
+Si el agente tuviese la creencia `mood(sleepy)` y no existiese ninguna regla cuyo contexto admita `mood(sleepy)`, ninguna regla sería aplicable y el evento se descartaría .
 
 ---
 
 ### Pregunta 3 (Bloque 2)
 > **Enunciado:** ¿Por qué el agente contesta con `respuesta(M)` y no con otro `saludo(M)`?
 
-**Respuesta preliminar / Guía:**
-Porque si respondiese con otro mensaje de tipo `saludo(M)`, el agente receptor volvería a disparar su plan `+saludo(_)`, enviando otro saludo de vuelta, provocando un bucle infinito de mensajes de saludo entre los dos agentes. Al utilizar `respuesta(M)`, el mensaje es capturado por el manejador específico `+respuesta(M)`, cerrando el protocolo de interacción y permitiendo que se dé por cumplido el objetivo con `+saludado`.
+**Respuesta:**
+Porque si respondiese con otro mensaje de tipo `saludo(M)`, el agente receptor volvería a disparar su plan `+saludo(_)`, enviando otro saludo de vuelta, provocando un bucle infinito de mensajes de saludo entre los dos agentes. Al utilizar `respuesta(M)`, el mensaje es capturado por el receptor manejador específico `+respuesta(M)`, cerrando el protocolo de interacción y permitiendo que se dé por cumplido el objetivo con `+saludado`.
 
 ---
 
