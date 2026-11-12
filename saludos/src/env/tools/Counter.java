@@ -17,4 +17,15 @@ public class Counter extends Artifact {
         ObsProperty count = getObsProperty("count");
         count.updateValue(count.intValue() + 1);
     }
+
+    @OPERATION
+    void turno(OpFeedbackParam<Integer> n) {
+
+        ObsProperty p = getObsProperty("count");
+
+        p.updateValue(p.intValue() + 1);
+
+        n.set(p.intValue());
+
+    }
 }
