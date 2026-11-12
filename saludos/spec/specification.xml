@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project cid="7" version="1.2">
+<project cid="9" version="1.2">
 <projectproperties>
 <projectproperty id="htmldoc" module="HTML Document generator"  name="HTML document folder" value="html"  tooltip="The document folder that will contain HTML version of this specification" />
 <projectproperty id="asproject" module="Jason/JaCaMo AgentSpeak generator"  name="JaCaMo project folder" value=""  tooltip="Folder of the JaCaMo project; empty: the folder of the specification (the parent of spec/)" />
 <projectproperty id="projectname" module="Jason/JaCaMo AgentSpeak generator"  name="JaCaMo application name" value=""  tooltip="Name of the .jcm; empty: the name of the project folder" />
 <projectproperty id="extfolder" module="IDK"  name="Extension Module Folder" value="ext"  tooltip="Folder where the IDE will find its new modules" />
- <openeddiagram>Greeter agent</openeddiagram> <openeddiagram>Environment</openeddiagram> <openeddiagram>AgentSpeak code</openeddiagram></projectproperties>
+ <openeddiagram>Greeter agent</openeddiagram> <openeddiagram>Environment</openeddiagram> <openeddiagram>AgentSpeak code</openeddiagram> <openeddiagram>Deploy_Diagram</openeddiagram></projectproperties>
 <leafpackages>
    <path>
     <package id="Project"/>
@@ -18,6 +18,10 @@
    <path>
     <package id="Project"/>
     <package id="AgentSpeak code"/>
+   </path>
+   <path>
+    <package id="Project"/>
+    <package id="Deploy_Diagram"/>
    </path>
 </leafpackages>
 <objects>
@@ -53,11 +57,55 @@
 </object>
 <object id="greet" type="ingenias.editor.entities.Plan">
 <mapproperties>
+<key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
 <object id="Greeter" type="ingenias.editor.entities.Agent">
 <mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="" type="ingenias.editor.entities.Agent">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="6" type="ingenias.editor.entities.Agent">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="8" type="ingenias.editor.entities.Agent">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="pareja" type="ingenias.editor.entities.DeploymentPackage">
+<objectproperty id="Parameters" collection="true">
+</objectproperty>
+<objectproperty id="AgentsDeployed" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="greeters" type="ingenias.editor.entities.DeploymentUnitByTypeEnumInitMS">
+<objectproperty id="AgentTypeDeployed">
+<object id="Greeter" type="ingenias.editor.entities.Agent">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+</objectproperty>
+<objectproperty id="InitialState" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="NumberInstances">2</key>
+<key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
@@ -83,6 +131,11 @@
 </mapproperties>
 </object>
 <object id="GreeterMentalState" type="ingenias.editor.entities.MentalState">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="9" type="ingenias.editor.entities.MentalState">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
@@ -126,13 +179,19 @@
 </mapproperties>
 </object>
 <object id="greet_code" type="ingenias.editor.entities.AslCodeComponent">
+<property id="aslFile"></property>
 <mapproperties>
 <key id="Language">AgentSpeak</key>
-<key id="Code">+!start : true &lt;-
-    .print(&quot;Hello world!&quot;);
-    inc;
-    ?count(N);
-    .print(&quot;The counter is now &quot;, N).</key>
+<key id="Code">+!start : true
+
+   &lt;- turno(N);
+
+      if (N mod 2 == 1) { +mood(happy) } else { +mood(grumpy) };
+
+      ?mood(M);
+
+      .print(&quot;Me despierto &quot;, M).</key>
+<key id="aslFile"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
@@ -249,6 +308,24 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role><role idEntity="greet" class="ingenias.editor.entities.Plan" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="1178331470">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="4" type="ingenias.editor.entities.DefinesDeployment">
+<object id="4" type="ingenias.editor.entities.DefinesDeployment">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+<key id="Label">DefinesDeployment</key>
+</mapproperties>
+</object>
+<role idEntity="pareja" class="ingenias.editor.entities.DeploymentPackage" roleName="DefinesDeploymenttarget" type="ingenias.editor.entities.DefinesDeploymenttargetRole" dgcid="2082883202">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="greeters" class="ingenias.editor.entities.DeploymentUnitByTypeEnumInitMS" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="1584278247">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -497,19 +574,82 @@
 			
 	<node id="node0">
 		<attr name="bounds">
-			<rectangle x="20" y="0" width="64" height="82"></rectangle>		</attr>
+			<rectangle x="18" y="161" width="64" height="82"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node1">
 		<attr name="bounds">
-			<rectangle x="100" y="0" width="95" height="70"></rectangle>		</attr>
+			<rectangle x="440" y="116" width="95" height="70"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node2">
 		<attr name="bounds">
-			<rectangle x="51" y="30" width="82" height="14"></rectangle>		</attr>
+			<rectangle x="220" y="170" width="82" height="14"></rectangle>		</attr>
+
+	</node>
+	</layout>
+</gxl> </model>
+ <model id="Deploy_Diagram" type="ingenias.editor.models.DeployDiagramModelJGraph">
+<object id="Deploy_Diagram" type="ingenias.editor.entities.DeployDiagramDataEntity">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+  <path>
+    <package id="Project"/>
+   </path>
+<gxl>
+
+	<graph>
+			
+	<node id="4" nid="2038329369" type="DefinesDeployment">
+
+	<connected id="1584278247"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="2082883202">
+
+
+
+	</connected>
+	</node>
+			
+	<node id="pareja" nid="2082883202" type="DeploymentPackage">
+
+	</node>
+			
+	<node id="greeters" nid="1584278247" type="DeploymentUnitByTypeEnumInitMS">
+
+	</node>
+	</graph>
+
+
+	<layout>
+			
+	<node id="node2">
+		<attr name="bounds">
+			<rectangle x="321" y="150" width="111" height="30"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node0">
+		<attr name="bounds">
+			<rectangle x="128" y="140" width="110" height="60"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node1">
+		<attr name="bounds">
+			<rectangle x="515" y="137" width="183" height="46"></rectangle>		</attr>
 
 	</node>
 	</layout>
