@@ -5,7 +5,7 @@
 <projectproperty id="asproject" module="Jason/JaCaMo AgentSpeak generator"  name="JaCaMo project folder" value=""  tooltip="Folder of the JaCaMo project; empty: the folder of the specification (the parent of spec/)" />
 <projectproperty id="projectname" module="Jason/JaCaMo AgentSpeak generator"  name="JaCaMo application name" value=""  tooltip="Name of the .jcm; empty: the name of the project folder" />
 <projectproperty id="extfolder" module="IDK"  name="Extension Module Folder" value="ext"  tooltip="Folder where the IDE will find its new modules" />
- <openeddiagram>Greeter agent</openeddiagram> <openeddiagram>Environment</openeddiagram> <openeddiagram>AgentSpeak code</openeddiagram> <openeddiagram>Deploy_Diagram</openeddiagram> <openeddiagram>Saludando plan</openeddiagram></projectproperties>
+ <openeddiagram>Greeter agent</openeddiagram> <openeddiagram>Environment</openeddiagram> <openeddiagram>AgentSpeak code</openeddiagram> <openeddiagram>Deploy_Diagram</openeddiagram> <openeddiagram>Saludando plan</openeddiagram> <openeddiagram>Interaction</openeddiagram></projectproperties>
 <leafpackages>
    <path>
     <package id="Project"/>
@@ -26,6 +26,10 @@
    <path>
     <package id="Project"/>
     <package id="Saludando plan"/>
+   </path>
+   <path>
+    <package id="Project"/>
+    <package id="Interaction"/>
    </path>
 </leafpackages>
 <objects>
@@ -130,6 +134,33 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
+<object id="reglas_greeter" type="ingenias.editor.entities.INGENIASCodeComponent">
+<mapproperties>
+<key id="Language">AgentSpeak</key>
+<key id="Code">+saludo(_)[source(S)] : mood(happy)
+
+   &lt;- .print(&quot;Hola, &quot;, S, &quot;. Que alegria verte!&quot;);
+
+      .send(S, tell, respuesta(happy)).
+
+ 
+
++saludo(_)[source(S)] : mood(grumpy)
+
+   &lt;- .print(&quot;Hmpf... hola, &quot;, S, &quot;.&quot;);
+
+      .send(S, tell, respuesta(grumpy)).
+
+ 
+
++respuesta(M)[source(S)]
+
+   &lt;- .print(S, &quot; me ha respondido de humor &quot;, M);
+
+      +saludado.</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
 <object id="start" type="ingenias.editor.entities.Goal">
 <mapproperties>
 <key id="MinAgents"></key>
@@ -138,7 +169,7 @@
 </object>
 <object id="saludar" type="ingenias.editor.entities.Goal">
 <mapproperties>
-<key id="MinAgents">1</key>
+<key id="MinAgents"></key>
 <key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
@@ -226,7 +257,11 @@
 
       ?mood(M);
 
-      .print(&quot;Me despierto &quot;, M).</key>
+      .print(&quot;Me despierto &quot;, M);
+
+      .wait(500);
+
+      !saludar.</key>
 <key id="aslFile"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
@@ -307,9 +342,18 @@
 <objectproperty id="SatisfactionCondition">
 </objectproperty>
 <objectproperty id="SatisfactionBeliefs" collection="true">
+<object id="saludado" type="ingenias.editor.entities.FrameFact">
+<objectproperty id="Slots" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
 </objectproperty>
 <mapproperties>
 <key id="_view_type">NOICON</key>
+<key id="Label"></key>
 </mapproperties>
 </object>
 <role idEntity="saludar" class="ingenias.editor.entities.Goal" roleName="GTSatisfiestarget" type="ingenias.editor.entities.GTSatisfiestargetRole" dgcid="1694039765">
@@ -421,6 +465,23 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
+<relationship id="18" type="ingenias.editor.entities.CDUsesCode">
+<object id="18" type="ingenias.editor.entities.CDUsesCode">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="reglas_greeter" class="ingenias.editor.entities.INGENIASCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="1278075510">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="368187949">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
 <relationship id="4" type="ingenias.editor.entities.DefinesDeployment">
 <object id="4" type="ingenias.editor.entities.DefinesDeployment">
 <mapproperties>
@@ -467,6 +528,65 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role><role idEntity="saludando" class="ingenias.editor.entities.Plan" roleName="WFContainsTasksource" type="ingenias.editor.entities.WFContainsTasksourceRole" dgcid="1229922709">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="15" type="ingenias.editor.entities.GTCreates">
+<object id="15" type="ingenias.editor.entities.GTCreates">
+<objectproperty id="Condition">
+</objectproperty>
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="saludado" class="ingenias.editor.entities.FrameFact" roleName="GTCreatestarget" type="ingenias.editor.entities.GTCreatestargetRole" dgcid="186934946">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="enviar_saludo" class="ingenias.editor.entities.Task" roleName="GTCreatessource" type="ingenias.editor.entities.GTCreatessourceRole" dgcid="1946396830">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="16" type="ingenias.editor.entities.UMLSendsMessage">
+<object id="16" type="ingenias.editor.entities.UMLSendsMessage">
+<mapproperties>
+<key id="SpeechAct">tell</key>
+<key id="Message">saludo(M)</key>
+<key id="Order"></key>
+<key id="_view_type">NOICON</key>
+</mapproperties>
+</object>
+<role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="UMLSendsMessagetarget" type="ingenias.editor.entities.UMLSendsMessagetargetRole" dgcid="2037100689">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="UMLSendsMessagesource" type="ingenias.editor.entities.UMLSendsMessagesourceRole" dgcid="247498554">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="17" type="ingenias.editor.entities.UMLSendsMessage">
+<object id="17" type="ingenias.editor.entities.UMLSendsMessage">
+<mapproperties>
+<key id="SpeechAct">tell</key>
+<key id="Message">respuesta(M)</key>
+<key id="Order"></key>
+<key id="_view_type">NOICON</key>
+</mapproperties>
+</object>
+<role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="UMLSendsMessagesource" type="ingenias.editor.entities.UMLSendsMessagesourceRole" dgcid="2037100689">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="UMLSendsMessagetarget" type="ingenias.editor.entities.UMLSendsMessagetargetRole" dgcid="247498554">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -656,7 +776,7 @@
 			
 	<node id="node8">
 		<attr name="bounds">
-			<rectangle x="373" y="280" width="50" height="77"></rectangle>		</attr>
+			<rectangle x="542" y="277" width="50" height="77"></rectangle>		</attr>
 
 	</node>
 			
@@ -686,13 +806,13 @@
 			
 	<node id="node9">
 		<attr name="bounds">
-			<rectangle x="224" y="277" width="97" height="15"></rectangle>		</attr>
+			<rectangle x="308" y="276" width="97" height="15"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node10">
 		<attr name="bounds">
-			<rectangle x="285" y="348" width="0" height="0"></rectangle>		</attr>
+			<rectangle x="370" y="346" width="0" height="0"></rectangle>		</attr>
 
 	</node>
 			
@@ -833,15 +953,11 @@
 	</connected>
 	</node>
 			
-	<node id="enviar_saludo" nid="679054462" type="Task">
+	<node id="Greeter" nid="368187949" type="Agent">
 
 	</node>
 			
 	<node id="greet" nid="627884604" type="Plan">
-
-	</node>
-			
-	<node id="enviar_saludo_code" nid="563482363" type="INGENIASCodeComponent">
 
 	</node>
 			
@@ -867,6 +983,37 @@
 	<node id="greet_code" nid="1807749548" type="AslCodeComponent">
 
 	</node>
+			
+	<node id="reglas_greeter" nid="1278075510" type="INGENIASCodeComponent">
+
+	</node>
+			
+	<node id="enviar_saludo_code" nid="563482363" type="INGENIASCodeComponent">
+
+	</node>
+			
+	<node id="18" nid="2120929524" type="CDUsesCode">
+
+	<connected id="368187949"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="1278075510">
+
+
+
+	</connected>
+	</node>
+			
+	<node id="enviar_saludo" nid="679054462" type="Task">
+
+	</node>
 	</graph>
 
 
@@ -878,21 +1025,15 @@
 
 	</node>
 			
-	<node id="node3">
+	<node id="node6">
 		<attr name="bounds">
-			<rectangle x="174" y="47" width="71" height="65"></rectangle>		</attr>
+			<rectangle x="544" y="240" width="39" height="50"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node0">
 		<attr name="bounds">
 			<rectangle x="18" y="161" width="64" height="82"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node4">
-		<attr name="bounds">
-			<rectangle x="648" y="67" width="177" height="57"></rectangle>		</attr>
 
 	</node>
 			
@@ -905,6 +1046,30 @@
 	<node id="node1">
 		<attr name="bounds">
 			<rectangle x="440" y="116" width="95" height="70"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node7">
+		<attr name="bounds">
+			<rectangle x="812" y="190" width="177" height="57"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node4">
+		<attr name="bounds">
+			<rectangle x="648" y="67" width="177" height="57"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node8">
+		<attr name="bounds">
+			<rectangle x="657" y="239" width="81" height="15"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node3">
+		<attr name="bounds">
+			<rectangle x="174" y="47" width="71" height="65"></rectangle>		</attr>
 
 	</node>
 	</layout>
@@ -1020,6 +1185,25 @@
 
 	<graph>
 			
+	<node id="15" nid="950187805" type="GTCreates">
+
+	<connected id="1946396830"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="186934946">
+
+
+
+	</connected>
+	</node>
+			
 	<node id="13" nid="1737934787" type="WFContainsTask">
 
 	<connected id="1229922709"><attr name="extraLabels">
@@ -1063,6 +1247,12 @@
 
 	<layout>
 			
+	<node id="node6">
+		<attr name="bounds">
+			<rectangle x="480" y="94" width="69" height="15"></rectangle>		</attr>
+
+	</node>
+			
 	<node id="node5">
 		<attr name="bounds">
 			<rectangle x="417" y="160" width="0" height="0"></rectangle>		</attr>
@@ -1096,6 +1286,96 @@
 	<node id="node0">
 		<attr name="bounds">
 			<rectangle x="191" y="134" width="39" height="50"></rectangle>		</attr>
+
+	</node>
+	</layout>
+</gxl> </model>
+ <model id="Interaction" type="ingenias.editor.models.InteractionModelModelJGraph">
+<object id="Interaction" type="ingenias.editor.entities.InteractionModelDataEntity">
+<objectproperty id="InteractionConsidered">
+</objectproperty>
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+  <path>
+    <package id="Project"/>
+   </path>
+<gxl>
+
+	<graph>
+			
+	<node id="Greeter" nid="2037100689" type="Agent">
+
+	</node>
+			
+	<node id="Greeter" nid="247498554" type="Agent">
+
+	</node>
+			
+	<node id="16" nid="940133705" type="UMLSendsMessage">
+
+	<connected id="247498554"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="2037100689">
+
+
+
+	</connected>
+	</node>
+			
+	<node id="17" nid="1562236423" type="UMLSendsMessage">
+
+	<connected id="2037100689"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="247498554">
+
+
+
+	</connected>
+	</node>
+	</graph>
+
+
+	<layout>
+			
+	<node id="node1">
+		<attr name="bounds">
+			<rectangle x="483" y="32" width="39" height="50"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node0">
+		<attr name="bounds">
+			<rectangle x="144" y="34" width="39" height="50"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node2">
+		<attr name="bounds">
+			<rectangle x="333" y="57" width="0" height="0"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node3">
+		<attr name="bounds">
+			<rectangle x="333" y="57" width="0" height="0"></rectangle>		</attr>
 
 	</node>
 	</layout>
