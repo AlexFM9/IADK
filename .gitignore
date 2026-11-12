@@ -3,6 +3,10 @@
 **/build/
 **/.gradle/
 
+# Binarios temporales de compiladores (VS Code / Eclipse)
+**/bin/
+.vscode/
+
 # Herramienta local (no subir al repositorio)
 IADK-1.0-AgentSpeak/
 
