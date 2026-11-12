@@ -1114,19 +1114,19 @@
 			
 	<node id="node2">
 		<attr name="bounds">
-			<rectangle x="220" y="170" width="82" height="14"></rectangle>		</attr>
+			<rectangle x="216" y="193" width="82" height="14"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node10">
 		<attr name="bounds">
-			<rectangle x="698" y="231" width="81" height="15"></rectangle>		</attr>
+			<rectangle x="696" y="258" width="81" height="15"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node9">
 		<attr name="bounds">
-			<rectangle x="893" y="169" width="146" height="72"></rectangle>		</attr>
+			<rectangle x="890" y="230" width="146" height="72"></rectangle>		</attr>
 
 	</node>
 			
@@ -1150,7 +1150,7 @@
 			
 	<node id="node1">
 		<attr name="bounds">
-			<rectangle x="440" y="116" width="95" height="70"></rectangle>		</attr>
+			<rectangle x="433" y="164" width="95" height="70"></rectangle>		</attr>
 
 	</node>
 			
@@ -1162,13 +1162,13 @@
 			
 	<node id="node11">
 		<attr name="bounds">
-			<rectangle x="569" y="24" width="146" height="72"></rectangle>		</attr>
+			<rectangle x="557" y="44" width="146" height="72"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node12">
 		<attr name="bounds">
-			<rectangle x="367" y="63" width="81" height="15"></rectangle>		</attr>
+			<rectangle x="361" y="72" width="81" height="15"></rectangle>		</attr>
 
 	</node>
 			

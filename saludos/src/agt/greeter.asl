@@ -19,21 +19,68 @@
 // (no plan runs for a goal while its beliefs hold, and its intention ends when
 // they come to hold; these rules are generated from the model: change them there)
 
+//#start_generated:saludar_satisfied <--- GENERATED FROM THE MODEL
+// goal saludar is satisfied when the agent believes saludado (Plan saludando)
+@saludar_satisfied
++!saludar : saludado <- true.
+@saludar_achieved_saludado
++saludado : .desire(saludar) <- .succeed_goal(saludar).
+//#end_generated:saludar_satisfied
+
+
 // --- Plans (one block for each plan, or for each task of a plan) -------------
 
-//#start_node:greet <--- DO NOT REMOVE THIS
-+!start : true <-
-    inc;
-    ?count(N);
-    if (N mod 2 == 1) { +mood(happy) } else { +mood(grumpy) };
+//#start_node:enviar_saludo <--- DO NOT REMOVE THIS
+@enviar_saludo
++!saludar : true <-
     ?mood(M);
-    .print("Me despierto ", M).
+    
+    .broadcast(tell, saludo(M));
+    
+    .wait({+saludado}).
+//#end_node:enviar_saludo <--- DO NOT REMOVE THIS
+
+
+//#start_node:greet <--- DO NOT REMOVE THIS
++!start : true
+
+   <- turno(N);
+
+      if (N mod 2 == 1) { +mood(happy) } else { +mood(grumpy) };
+
+      ?mood(M);
+
+      .print("Me despierto ", M);
+
+      .wait(500);
+
+      !saludar.
 //#end_node:greet <--- DO NOT REMOVE THIS
 
 
 // --- Other rules of the agent (code components of the agent) ----------------
 //#start_node:Greeter <--- DO NOT REMOVE THIS
++saludo(_)[source(S)] : mood(happy)
 
+   <- .print("Hola, ", S, ". Que alegria verte!");
+
+      .send(S, tell, respuesta(happy)).
+
+ 
+
++saludo(_)[source(S)] : mood(grumpy)
+
+   <- .print("Hmpf... hola, ", S, ".");
+
+      .send(S, tell, respuesta(grumpy)).
+
+ 
+
++respuesta(M)[source(S)]
+
+   <- .print(S, " me ha respondido de humor ", M);
+
+      +saludado.
 //#end_node:Greeter <--- DO NOT REMOVE THIS
 
 // --- Environment: artifacts it focuses on (observable properties = beliefs) ---
