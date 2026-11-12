@@ -106,3 +106,4 @@ BLOQUE 4: Cambiar el código y subirlo al modelo (Saludo personalizado sincroniz
 [greeter1] greeter2 me ha respondido de humor grumpy
 [greeter2] greeter1 me ha respondido de humor happy
 ================================================================================
+

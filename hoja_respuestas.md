@@ -11,7 +11,7 @@
 - Alexander Fontán Moreira
 
 | Bloque | Modelador | Guía | Verificador | Secretario |
-| :--- | :--- | :--- | :--- | :--- | :--- |
+| :--- | :--- | :--- | :--- | :--- |
 | **Bloque 0: Arranque** | Damian | Carlos | Alex | Carlota |
 | **Bloque 1: Dos agentes y su estado de ánimo** | Damian | Carlos | Alex | Carlota |
 | **Bloque 2: Saludos que dependen del ánimo** | Damian | Carlos | Alex | Carlota |
