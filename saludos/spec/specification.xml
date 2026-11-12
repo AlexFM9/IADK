@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project cid="7" version="1.2">
 <projectproperties>
+<projectproperty id="htmldoc" module="HTML Document generator"  name="HTML document folder" value="html"  tooltip="The document folder that will contain HTML version of this specification" />
+<projectproperty id="asproject" module="Jason/JaCaMo AgentSpeak generator"  name="JaCaMo project folder" value=""  tooltip="Folder of the JaCaMo project; empty: the folder of the specification (the parent of spec/)" />
+<projectproperty id="projectname" module="Jason/JaCaMo AgentSpeak generator"  name="JaCaMo application name" value=""  tooltip="Name of the .jcm; empty: the name of the project folder" />
 <projectproperty id="extfolder" module="IDK"  name="Extension Module Folder" value="ext"  tooltip="Folder where the IDE will find its new modules" />
-</projectproperties>
+ <openeddiagram>Greeter agent</openeddiagram> <openeddiagram>Environment</openeddiagram> <openeddiagram>AgentSpeak code</openeddiagram></projectproperties>
 <leafpackages>
    <path>
     <package id="Project"/>
@@ -25,6 +28,21 @@
 </objectproperty>
 <mapproperties>
 <key id="Name">inc</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="Counter_turno" type="ingenias.editor.entities.Method">
+<objectproperty id="Parameter" collection="true">
+<object id="Counter_turno_n" type="ingenias.editor.entities.MethodParameter">
+<mapproperties>
+<key id="Name">n</key>
+<key id="Type">OpFeedbackParam&lt;Integer&gt;</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+</objectproperty>
+<mapproperties>
+<key id="Name">turno</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
@@ -77,6 +95,28 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
+<object id="Counter_turno" type="ingenias.editor.entities.Method">
+<objectproperty id="Parameter" collection="true">
+<object id="Counter_turno_n" type="ingenias.editor.entities.MethodParameter">
+<mapproperties>
+<key id="Name">n</key>
+<key id="Type">OpFeedbackParam&lt;Integer&gt;</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+</objectproperty>
+<mapproperties>
+<key id="Name">turno</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="Counter_turno_n" type="ingenias.editor.entities.MethodParameter">
+<mapproperties>
+<key id="Name">n</key>
+<key id="Type">OpFeedbackParam&lt;Integer&gt;</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
 <object id="count_value" type="ingenias.editor.entities.Slot">
 <mapproperties>
 <key id="Name">value</key>
@@ -98,18 +138,35 @@
 </object>
 </objects>
 <relationships>
+<relationship id="1" type="ingenias.editor.entities.AContainsME">
+<object id="1" type="ingenias.editor.entities.AContainsME">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="GreeterMentalState" class="ingenias.editor.entities.MentalState" roleName="AContainsMEsource" type="ingenias.editor.entities.AContainsMEsourceRole" dgcid="247210712">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="start" class="ingenias.editor.entities.Goal" roleName="AContainsMEtarget" type="ingenias.editor.entities.AContainsMEtargetRole" dgcid="1007472012">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
 <relationship id="0" type="ingenias.editor.entities.AHasMS">
 <object id="0" type="ingenias.editor.entities.AHasMS">
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="GreeterMentalState" class="ingenias.editor.entities.MentalState" roleName="AHasMStarget" type="ingenias.editor.entities.AHasMStargetRole" dgcid="1878164870">
+<role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="AHasMSsource" type="ingenias.editor.entities.AHasMSsourceRole" dgcid="1126013382">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="AHasMSsource" type="ingenias.editor.entities.AHasMSsourceRole" dgcid="1335871980">
+</role><role idEntity="GreeterMentalState" class="ingenias.editor.entities.MentalState" roleName="AHasMStarget" type="ingenias.editor.entities.AHasMStargetRole" dgcid="247210712">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -121,46 +178,12 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="greet" class="ingenias.editor.entities.Plan" roleName="WFResponsabletarget" type="ingenias.editor.entities.WFResponsabletargetRole" dgcid="1931464335">
+<role idEntity="greet" class="ingenias.editor.entities.Plan" roleName="WFResponsabletarget" type="ingenias.editor.entities.WFResponsabletargetRole" dgcid="1369896109">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="WFResponsablesource" type="ingenias.editor.entities.WFResponsablesourceRole" dgcid="1335871980">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="1" type="ingenias.editor.entities.AContainsME">
-<object id="1" type="ingenias.editor.entities.AContainsME">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="start" class="ingenias.editor.entities.Goal" roleName="AContainsMEtarget" type="ingenias.editor.entities.AContainsMEtargetRole" dgcid="843184469">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="GreeterMentalState" class="ingenias.editor.entities.MentalState" roleName="AContainsMEsource" type="ingenias.editor.entities.AContainsMEsourceRole" dgcid="1878164870">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role></relationship>
-<relationship id="3" type="ingenias.editor.entities.EHasObservableProperty">
-<object id="3" type="ingenias.editor.entities.EHasObservableProperty">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<role idEntity="count" class="ingenias.editor.entities.FrameFact" roleName="EHasObservablePropertytarget" type="ingenias.editor.entities.EHasObservablePropertytargetRole" dgcid="1629275903">
-<mapproperties>
-<key id="attributeToShow">0</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</role><role idEntity="Counter" class="ingenias.editor.entities.EnvironmentApplication" roleName="EHasObservablePropertysource" type="ingenias.editor.entities.EHasObservablePropertysourceRole" dgcid="1024167686">
+</role><role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="WFResponsablesource" type="ingenias.editor.entities.WFResponsablesourceRole" dgcid="1126013382">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -169,6 +192,8 @@
 <relationship id="5" type="ingenias.editor.entities.EPerceives">
 <object id="5" type="ingenias.editor.entities.EPerceives">
 <objectproperty id="Event">
+</objectproperty>
+<objectproperty id="Events" collection="true">
 </objectproperty>
 <objectproperty id="Operations" collection="true">
 <object id="Counter_inc" type="ingenias.editor.entities.Method">
@@ -184,12 +209,29 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="EPerceivessource" type="ingenias.editor.entities.EPerceivessourceRole" dgcid="1798370856">
+<role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="EPerceivessource" type="ingenias.editor.entities.EPerceivessourceRole" dgcid="1282977756">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="Counter" class="ingenias.editor.entities.EnvironmentApplication" roleName="EPerceivestarget" type="ingenias.editor.entities.EPerceivestargetRole" dgcid="1024167686">
+</role><role idEntity="Counter" class="ingenias.editor.entities.EnvironmentApplication" roleName="EPerceivestarget" type="ingenias.editor.entities.EPerceivestargetRole" dgcid="20008058">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="3" type="ingenias.editor.entities.EHasObservableProperty">
+<object id="3" type="ingenias.editor.entities.EHasObservableProperty">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="Counter" class="ingenias.editor.entities.EnvironmentApplication" roleName="EHasObservablePropertysource" type="ingenias.editor.entities.EHasObservablePropertysourceRole" dgcid="20008058">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="count" class="ingenias.editor.entities.FrameFact" roleName="EHasObservablePropertytarget" type="ingenias.editor.entities.EHasObservablePropertytargetRole" dgcid="1352660276">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -201,12 +243,12 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<role idEntity="greet_code" class="ingenias.editor.entities.AslCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="849345102">
+<role idEntity="greet_code" class="ingenias.editor.entities.AslCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="1549466143">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="greet" class="ingenias.editor.entities.Plan" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="1510712887">
+</role><role idEntity="greet" class="ingenias.editor.entities.Plan" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="1178331470">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -227,55 +269,55 @@
 
 	<graph>
 			
-	<node id="GreeterMentalState" nid="1878164870" type="MentalState">
+	<node id="Greeter" nid="1126013382" type="Agent">
 
 	</node>
 			
-	<node id="greet" nid="1931464335" type="Plan">
+	<node id="greet" nid="1369896109" type="Plan">
 
 	</node>
 			
-	<node id="start" nid="843184469" type="Goal">
+	<node id="start" nid="1007472012" type="Goal">
 
 	</node>
 			
-	<node id="1" nid="105026839" type="AContainsME">
+	<node id="2" nid="1168324383" type="WFResponsable">
 
-	<connected id="1878164870">
+	<connected id="1126013382">
 
 
 	</connected>
-	<connected id="843184469">
-
-
-
-	</connected>
-	</node>
-			
-	<node id="Greeter" nid="1335871980" type="Agent">
-
-	</node>
-			
-	<node id="0" nid="385907655" type="AHasMS">
-
-	<connected id="1335871980">
-
-
-	</connected>
-	<connected id="1878164870">
+	<connected id="1369896109">
 
 
 
 	</connected>
 	</node>
 			
-	<node id="2" nid="1877814477" type="WFResponsable">
+	<node id="1" nid="126292468" type="AContainsME">
 
-	<connected id="1335871980">
+	<connected id="247210712">
 
 
 	</connected>
-	<connected id="1931464335">
+	<connected id="1007472012">
+
+
+
+	</connected>
+	</node>
+			
+	<node id="GreeterMentalState" nid="247210712" type="MentalState">
+
+	</node>
+			
+	<node id="0" nid="1292431118" type="AHasMS">
+
+	<connected id="1126013382">
+
+
+	</connected>
+	<connected id="247210712">
 
 
 
@@ -286,19 +328,19 @@
 
 	<layout>
 			
-	<node id="node0">
+	<node id="node3">
 		<attr name="bounds">
-			<rectangle x="80" y="0" width="114" height="40"></rectangle>		</attr>
+			<rectangle x="20" y="0" width="40" height="56"></rectangle>		</attr>
 
 	</node>
 			
-	<node id="node2">
+	<node id="node1">
 		<attr name="bounds">
 			<rectangle x="240" y="0" width="64" height="82"></rectangle>		</attr>
 
 	</node>
 			
-	<node id="node3">
+	<node id="node2">
 		<attr name="bounds">
 			<rectangle x="200" y="0" width="34" height="49"></rectangle>		</attr>
 
@@ -306,25 +348,25 @@
 			
 	<node id="node6">
 		<attr name="bounds">
-			<rectangle x="156" y="15" width="83" height="14"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node1">
-		<attr name="bounds">
-			<rectangle x="20" y="0" width="40" height="56"></rectangle>		</attr>
+			<rectangle x="103" y="27" width="95" height="14"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node4">
 		<attr name="bounds">
-			<rectangle x="43" y="18" width="55" height="14"></rectangle>		</attr>
+			<rectangle x="156" y="15" width="83" height="14"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node0">
+		<attr name="bounds">
+			<rectangle x="80" y="0" width="114" height="40"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node5">
 		<attr name="bounds">
-			<rectangle x="103" y="27" width="95" height="14"></rectangle>		</attr>
+			<rectangle x="43" y="18" width="55" height="14"></rectangle>		</attr>
 
 	</node>
 	</layout>
@@ -342,41 +384,41 @@
 
 	<graph>
 			
-	<node id="Greeter" nid="1798370856" type="Agent">
+	<node id="5" nid="163653785" type="EPerceives">
 
-	</node>
-			
-	<node id="5" nid="2056328335" type="EPerceives">
-
-	<connected id="1024167686">
+	<connected id="20008058">
 
 
 
 	</connected>
-	<connected id="1798370856">
+	<connected id="1282977756">
 
 
 	</connected>
 	</node>
 			
-	<node id="Counter" nid="1024167686" type="EnvironmentApplication">
+	<node id="Greeter" nid="1282977756" type="Agent">
 
 	</node>
 			
-	<node id="3" nid="1404542427" type="EHasObservableProperty">
+	<node id="Counter" nid="20008058" type="EnvironmentApplication">
 
-	<connected id="1024167686">
+	</node>
+			
+	<node id="3" nid="323680458" type="EHasObservableProperty">
+
+	<connected id="20008058">
 
 
 	</connected>
-	<connected id="1629275903">
+	<connected id="1352660276">
 
 
 
 	</connected>
 	</node>
 			
-	<node id="count" nid="1629275903" type="FrameFact">
+	<node id="count" nid="1352660276" type="FrameFact">
 
 	</node>
 	</graph>
@@ -384,13 +426,7 @@
 
 	<layout>
 			
-	<node id="node1">
-		<attr name="bounds">
-			<rectangle x="20" y="0" width="40" height="56"></rectangle>		</attr>
-
-	</node>
-			
-	<node id="node4">
+	<node id="node3">
 		<attr name="bounds">
 			<rectangle x="36" y="18" width="68" height="14"></rectangle>		</attr>
 
@@ -398,11 +434,17 @@
 			
 	<node id="node0">
 		<attr name="bounds">
+			<rectangle x="20" y="0" width="40" height="56"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node1">
+		<attr name="bounds">
 			<rectangle x="80" y="0" width="44" height="45"></rectangle>		</attr>
 
 	</node>
 			
-	<node id="node3">
+	<node id="node4">
 		<attr name="bounds">
 			<rectangle x="60" y="15" width="145" height="14"></rectangle>		</attr>
 
@@ -428,36 +470,30 @@
 
 	<graph>
 			
-	<node id="7" nid="1927166711" type="CDUsesCode">
-
-	<connected id="1510712887">
-
-
-	</connected>
-	<connected id="849345102">
-
-
-
-	</connected>
-	</node>
-			
-	<node id="greet" nid="1510712887" type="Plan">
+	<node id="greet" nid="1178331470" type="Plan">
 
 	</node>
 			
-	<node id="greet_code" nid="849345102" type="AslCodeComponent">
+	<node id="greet_code" nid="1549466143" type="AslCodeComponent">
 
+	</node>
+			
+	<node id="7" nid="804918215" type="CDUsesCode">
+
+	<connected id="1178331470">
+
+
+	</connected>
+	<connected id="1549466143">
+
+
+
+	</connected>
 	</node>
 	</graph>
 
 
 	<layout>
-			
-	<node id="node2">
-		<attr name="bounds">
-			<rectangle x="51" y="30" width="82" height="14"></rectangle>		</attr>
-
-	</node>
 			
 	<node id="node0">
 		<attr name="bounds">
@@ -468,6 +504,12 @@
 	<node id="node1">
 		<attr name="bounds">
 			<rectangle x="100" y="0" width="95" height="70"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node2">
+		<attr name="bounds">
+			<rectangle x="51" y="30" width="82" height="14"></rectangle>		</attr>
 
 	</node>
 	</layout>
