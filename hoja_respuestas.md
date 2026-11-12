@@ -55,10 +55,15 @@
 > **Enunciado:** Sustituid `turno(N)` por `inc; ?count(N)` y ejecutad varias veces. ¿Qué ocurre a veces con el ánimo de los agentes y por qué? ¿Por qué lo evita `turno`?
 
 **Respuesta preliminar / Guía:**
+Antes se saludaban y ahora no.
 Al descomponer la consulta en dos acciones separadas (`inc` seguido de `?count(N)`), se introduce una condición de carrera (*race condition*). Si los dos agentes ejecutan concurrentemente `inc` antes de que el primero consulte `?count(N)`, ambos agentes leerán el mismo valor actualizado del contador (por ejemplo, ambos leen 2). Como resultado, ambos adoptarán el mismo estado de ánimo (`grumpy` o `happy`). 
+Antes:
+[greeter2] Me despierto happy
+[greeter1] Me despierto grumpy
 
-La operación `turno(N)` evita esto porque los artefactos CArtAgO garantizan atomicidad en la ejecución de sus operaciones `@OPERATION`: el incremento y la asignación del valor devuelto se realizan en un único paso atómico, asegurando que cada agente reciba obligatoriamente números consecutivos (uno impar y otro par).
-
+Despues:
+[greeter1] Me despierto grumpy
+[greeter2] Me despierto grumpy
 ---
 
 ### Pregunta 2 (Bloque 2)
