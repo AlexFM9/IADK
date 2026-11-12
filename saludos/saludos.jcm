@@ -9,6 +9,22 @@ mas saludos {
     // agents: one of each type, or the ones of the deployments (DeploymentPackage,
     // Deploy Diagram) with their number of instances and initial state
 
+    agent greeter : greeter.asl {
+
+        instances: 2
+
+
+
+
+
+        join: env
+
+
+        focus: env.counter
+
+    }
+
+
     // CArtAgO workspaces (Workspace, Environment Model) and their artifacts
     // (EnvironmentApplication, EContainsArtifact); env is the default workspace
 

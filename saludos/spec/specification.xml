@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project cid="9" version="1.2">
 <projectproperties>
-<projectproperty id="htmldoc" module="HTML Document generator"  name="HTML document folder" value="html"  tooltip="The document folder that will contain HTML version of this specification" />
+<projectproperty id="htmldoc" module="HTML Document generator"  name="HTML document folder" value="../workspace/home/project/html"  tooltip="The document folder that will contain HTML version of this specification" />
 <projectproperty id="asproject" module="Jason/JaCaMo AgentSpeak generator"  name="JaCaMo project folder" value=""  tooltip="Folder of the JaCaMo project; empty: the folder of the specification (the parent of spec/)" />
 <projectproperty id="projectname" module="Jason/JaCaMo AgentSpeak generator"  name="JaCaMo application name" value=""  tooltip="Name of the .jcm; empty: the name of the project folder" />
 <projectproperty id="extfolder" module="IDK"  name="Extension Module Folder" value="ext"  tooltip="Folder where the IDE will find its new modules" />
@@ -116,9 +116,15 @@
 </object>
 <object id="greeters" type="ingenias.editor.entities.DeploymentUnitByType">
 <objectproperty id="AgentTypeDeployed">
+<object id="Greeter" type="ingenias.editor.entities.Agent">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
 </objectproperty>
 <mapproperties>
-<key id="NumberInstances"></key>
+<key id="NumberInstances">2</key>
 <key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
@@ -274,7 +280,11 @@
 <property id="aslFile"></property>
 <mapproperties>
 <key id="Language">AgentSpeak</key>
-<key id="Code"></key>
+<key id="Code">?mood(M);
+
+.broadcast(tell, saludo(M));
+
+.wait({+saludado})</key>
 <key id="aslFile"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
@@ -1266,19 +1276,19 @@
 			
 	<node id="node3">
 		<attr name="bounds">
-			<rectangle x="268" y="188" width="111" height="15"></rectangle>		</attr>
+			<rectangle x="284" y="177" width="111" height="15"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node2">
 		<attr name="bounds">
-			<rectangle x="323" y="195" width="0" height="0"></rectangle>		</attr>
+			<rectangle x="339" y="184" width="0" height="0"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node1">
 		<attr name="bounds">
-			<rectangle x="452" y="182" width="124" height="46"></rectangle>		</attr>
+			<rectangle x="484" y="159" width="124" height="46"></rectangle>		</attr>
 
 	</node>
 			
