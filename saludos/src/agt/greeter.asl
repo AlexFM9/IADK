@@ -54,6 +54,8 @@
 
 // inc()    (operation of artifact counter)
 
+// turno(n)    (operation of artifact counter)
+
 
 // --- Roles this agent plays --------------------------------------------------
 

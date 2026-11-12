@@ -63,6 +63,7 @@
 </object>
 <object id="Greeter" type="ingenias.editor.entities.Agent">
 <mapproperties>
+<key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
@@ -93,18 +94,11 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<object id="greeters" type="ingenias.editor.entities.DeploymentUnitByTypeEnumInitMS">
+<object id="greeters" type="ingenias.editor.entities.DeploymentUnitByType">
 <objectproperty id="AgentTypeDeployed">
-<object id="Greeter" type="ingenias.editor.entities.Agent">
-<mapproperties>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-</objectproperty>
-<objectproperty id="InitialState" collection="true">
 </objectproperty>
 <mapproperties>
-<key id="NumberInstances">2</key>
+<key id="NumberInstances"></key>
 <key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
@@ -263,9 +257,25 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
+<object id="Counter_turno" type="ingenias.editor.entities.Method">
+<objectproperty id="Parameter" collection="true">
+<object id="Counter_turno_n" type="ingenias.editor.entities.MethodParameter">
+<mapproperties>
+<key id="Name">n</key>
+<key id="Type">OpFeedbackParam&lt;Integer&gt;</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+</objectproperty>
+<mapproperties>
+<key id="Name">turno</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
 </objectproperty>
 <mapproperties>
 <key id="_view_type">INGENIAS</key>
+<key id="Label"></key>
 </mapproperties>
 </object>
 <role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="EPerceivessource" type="ingenias.editor.entities.EPerceivessourceRole" dgcid="1282977756">
@@ -316,8 +326,7 @@
 <relationship id="4" type="ingenias.editor.entities.DefinesDeployment">
 <object id="4" type="ingenias.editor.entities.DefinesDeployment">
 <mapproperties>
-<key id="_view_type">INGENIAS</key>
-<key id="Label">DefinesDeployment</key>
+<key id="_view_type">NOICON</key>
 </mapproperties>
 </object>
 <role idEntity="pareja" class="ingenias.editor.entities.DeploymentPackage" roleName="DefinesDeploymenttarget" type="ingenias.editor.entities.DefinesDeploymenttargetRole" dgcid="2082883202">
@@ -325,7 +334,24 @@
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
-</role><role idEntity="greeters" class="ingenias.editor.entities.DeploymentUnitByTypeEnumInitMS" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="1584278247">
+</role><role idEntity="greeters" class="ingenias.editor.entities.DeploymentUnitByType" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="2107830890">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="10" type="ingenias.editor.entities.DefinesDeployment">
+<object id="10" type="ingenias.editor.entities.DefinesDeployment">
+<mapproperties>
+<key id="_view_type">NOICON</key>
+</mapproperties>
+</object>
+<role idEntity="pareja" class="ingenias.editor.entities.DeploymentPackage" roleName="DefinesDeploymenttarget" type="ingenias.editor.entities.DefinesDeploymenttargetRole" dgcid="2082883202">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="greeters" class="ingenias.editor.entities.DeploymentUnitByType" roleName="DefinesDeploymentsource" type="ingenias.editor.entities.DefinesDeploymentsourceRole" dgcid="2107830890">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -407,43 +433,43 @@
 			
 	<node id="node3">
 		<attr name="bounds">
-			<rectangle x="20" y="0" width="40" height="56"></rectangle>		</attr>
+			<rectangle x="119" y="164" width="38" height="56"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node1">
 		<attr name="bounds">
-			<rectangle x="240" y="0" width="64" height="82"></rectangle>		</attr>
+			<rectangle x="369" y="105" width="64" height="82"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node2">
 		<attr name="bounds">
-			<rectangle x="200" y="0" width="34" height="49"></rectangle>		</attr>
+			<rectangle x="431" y="25" width="34" height="49"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node6">
 		<attr name="bounds">
-			<rectangle x="103" y="27" width="95" height="14"></rectangle>		</attr>
+			<rectangle x="216" y="162" width="95" height="14"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node4">
 		<attr name="bounds">
-			<rectangle x="156" y="15" width="83" height="14"></rectangle>		</attr>
+			<rectangle x="242" y="54" width="83" height="14"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node0">
 		<attr name="bounds">
-			<rectangle x="80" y="0" width="114" height="40"></rectangle>		</attr>
+			<rectangle x="22" y="57" width="114" height="40"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node5">
 		<attr name="bounds">
-			<rectangle x="43" y="18" width="55" height="14"></rectangle>		</attr>
+			<rectangle x="79" y="123" width="55" height="14"></rectangle>		</attr>
 
 	</node>
 	</layout>
@@ -505,7 +531,7 @@
 			
 	<node id="node3">
 		<attr name="bounds">
-			<rectangle x="36" y="18" width="68" height="14"></rectangle>		</attr>
+			<rectangle x="110" y="123" width="68" height="14"></rectangle>		</attr>
 
 	</node>
 			
@@ -517,19 +543,19 @@
 			
 	<node id="node1">
 		<attr name="bounds">
-			<rectangle x="80" y="0" width="44" height="45"></rectangle>		</attr>
+			<rectangle x="229" y="214" width="44" height="45"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node4">
 		<attr name="bounds">
-			<rectangle x="60" y="15" width="145" height="14"></rectangle>		</attr>
+			<rectangle x="336" y="189" width="145" height="14"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node2">
 		<attr name="bounds">
-			<rectangle x="140" y="0" width="41" height="45"></rectangle>		</attr>
+			<rectangle x="544" y="136" width="41" height="45"></rectangle>		</attr>
 
 	</node>
 	</layout>
@@ -604,9 +630,9 @@
 
 	<graph>
 			
-	<node id="4" nid="2038329369" type="DefinesDeployment">
+	<node id="4" nid="1619139088" type="DefinesDeployment">
 
-	<connected id="1584278247"><attr name="extraLabels">
+	<connected id="2107830890"><attr name="extraLabels">
 			<array>
 
 </array>
@@ -627,7 +653,26 @@
 
 	</node>
 			
-	<node id="greeters" nid="1584278247" type="DeploymentUnitByTypeEnumInitMS">
+	<node id="10" nid="686387374" type="DefinesDeployment">
+
+	<connected id="2107830890"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="2082883202">
+
+
+
+	</connected>
+	</node>
+			
+	<node id="greeters" nid="2107830890" type="DeploymentUnitByType">
 
 	</node>
 	</graph>
@@ -637,19 +682,25 @@
 			
 	<node id="node2">
 		<attr name="bounds">
-			<rectangle x="321" y="150" width="111" height="30"></rectangle>		</attr>
+			<rectangle x="323" y="195" width="0" height="0"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node0">
 		<attr name="bounds">
-			<rectangle x="128" y="140" width="110" height="60"></rectangle>		</attr>
+			<rectangle x="85" y="157" width="110" height="60"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node3">
+		<attr name="bounds">
+			<rectangle x="323" y="195" width="0" height="0"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node1">
 		<attr name="bounds">
-			<rectangle x="515" y="137" width="183" height="46"></rectangle>		</attr>
+			<rectangle x="452" y="182" width="124" height="46"></rectangle>		</attr>
 
 	</node>
 	</layout>
