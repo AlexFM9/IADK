@@ -22,15 +22,12 @@
 // --- Plans (one block for each plan, or for each task of a plan) -------------
 
 //#start_node:greet <--- DO NOT REMOVE THIS
-+!start : true
-
-   <- turno(N);
-
-      if (N mod 2 == 1) { +mood(happy) } else { +mood(grumpy) };
-
-      ?mood(M);
-
-      .print("Me despierto ", M).
++!start : true <-
+    inc;
+    ?count(N);
+    if (N mod 2 == 1) { +mood(happy) } else { +mood(grumpy) };
+    ?mood(M);
+    .print("Me despierto ", M).
 //#end_node:greet <--- DO NOT REMOVE THIS
 
 
