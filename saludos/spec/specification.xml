@@ -5,7 +5,7 @@
 <projectproperty id="asproject" module="Jason/JaCaMo AgentSpeak generator"  name="JaCaMo project folder" value=""  tooltip="Folder of the JaCaMo project; empty: the folder of the specification (the parent of spec/)" />
 <projectproperty id="projectname" module="Jason/JaCaMo AgentSpeak generator"  name="JaCaMo application name" value=""  tooltip="Name of the .jcm; empty: the name of the project folder" />
 <projectproperty id="extfolder" module="IDK"  name="Extension Module Folder" value="ext"  tooltip="Folder where the IDE will find its new modules" />
- <openeddiagram>Greeter agent</openeddiagram> <openeddiagram>Environment</openeddiagram> <openeddiagram>AgentSpeak code</openeddiagram> <openeddiagram>Deploy_Diagram</openeddiagram> <openeddiagram>Saludando plan</openeddiagram> <openeddiagram>Interaction</openeddiagram></projectproperties>
+ <openeddiagram>Greeter agent</openeddiagram> <openeddiagram>Environment</openeddiagram> <openeddiagram>AgentSpeak code</openeddiagram> <openeddiagram>Deploy_Diagram</openeddiagram> <openeddiagram>Saludando plan</openeddiagram> <openeddiagram>Interaction</openeddiagram> <openeddiagram>Team organisation</openeddiagram></projectproperties>
 <leafpackages>
    <path>
     <package id="Project"/>
@@ -30,6 +30,10 @@
    <path>
     <package id="Project"/>
     <package id="Interaction"/>
+   </path>
+   <path>
+    <package id="Project"/>
+    <package id="Team organisation"/>
    </path>
 </leafpackages>
 <objects>
@@ -99,6 +103,12 @@
 </mapproperties>
 </object>
 <object id="8" type="ingenias.editor.entities.Agent">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="saludo_org" type="ingenias.editor.entities.Organization">
 <mapproperties>
 <key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
@@ -205,11 +215,41 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
+<object id="team" type="ingenias.editor.entities.OrganizationGroup">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="saludador" type="ingenias.editor.entities.Role">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
 <object id="count_value" type="ingenias.editor.entities.Slot">
 <mapproperties>
 <key id="Name">value</key>
 <key id="Value">0</key>
 <key id="Type">int</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="m_saludar" type="ingenias.editor.entities.Mission">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="saludo_sch" type="ingenias.editor.entities.Scheme">
+<mapproperties>
+<key id="Description"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="env" type="ingenias.editor.entities.Workspace">
+<mapproperties>
+<key id="Description"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
@@ -454,6 +494,23 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role></relationship>
+<relationship id="21" type="ingenias.editor.entities.EContainsArtifact">
+<object id="21" type="ingenias.editor.entities.EContainsArtifact">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="env" class="ingenias.editor.entities.Workspace" roleName="EContainsArtifactsource" type="ingenias.editor.entities.EContainsArtifactsourceRole" dgcid="1085001054">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="Counter" class="ingenias.editor.entities.EnvironmentApplication" roleName="EContainsArtifacttarget" type="ingenias.editor.entities.EContainsArtifacttargetRole" dgcid="1130711954">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
 <relationship id="7" type="ingenias.editor.entities.CDUsesCode">
 <object id="7" type="ingenias.editor.entities.CDUsesCode">
 <mapproperties>
@@ -644,6 +701,161 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role><role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="UMLSendsMessagetarget" type="ingenias.editor.entities.UMLSendsMessagetargetRole" dgcid="247498554">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="22" type="ingenias.editor.entities.OHasGroup">
+<object id="22" type="ingenias.editor.entities.OHasGroup">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="saludo_org" class="ingenias.editor.entities.Organization" roleName="OHasGroupsource" type="ingenias.editor.entities.OHasGroupsourceRole" dgcid="527316193">
+<mapproperties>
+<key id="Cardinality">1</key>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="team" class="ingenias.editor.entities.OrganizationGroup" roleName="OHasGrouptarget" type="ingenias.editor.entities.OHasGrouptargetRole" dgcid="126800961">
+<mapproperties>
+<key id="Cardinality">1</key>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="23" type="ingenias.editor.entities.OHasMember">
+<object id="23" type="ingenias.editor.entities.OHasMember">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="saludador" class="ingenias.editor.entities.Role" roleName="OHasMembertarget" type="ingenias.editor.entities.OHasMembertargetRole" dgcid="1552556228">
+<mapproperties>
+<key id="Cardinality">1..2</key>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="team" class="ingenias.editor.entities.OrganizationGroup" roleName="OHasMembersource" type="ingenias.editor.entities.OHasMembersourceRole" dgcid="126800961">
+<mapproperties>
+<key id="Cardinality">1</key>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="24" type="ingenias.editor.entities.OHasWF">
+<object id="24" type="ingenias.editor.entities.OHasWF">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="saludo_sch" class="ingenias.editor.entities.Scheme" roleName="OHasWFtarget" type="ingenias.editor.entities.OHasWFtargetRole" dgcid="1668893136">
+<mapproperties>
+<key id="Cardinality">1</key>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="saludo_org" class="ingenias.editor.entities.Organization" roleName="OHasWFsource" type="ingenias.editor.entities.OHasWFsourceRole" dgcid="527316193">
+<mapproperties>
+<key id="Cardinality">1</key>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="25" type="ingenias.editor.entities.WFDecomposesWF">
+<object id="25" type="ingenias.editor.entities.WFDecomposesWF">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="saludo_sch" class="ingenias.editor.entities.Scheme" roleName="WFDecomposesWFsource" type="ingenias.editor.entities.WFDecomposesWFsourceRole" dgcid="1668893136">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="m_saludar" class="ingenias.editor.entities.Mission" roleName="WFDecomposesWFtarget" type="ingenias.editor.entities.WFDecomposesWFtargetRole" dgcid="1415258774">
+<mapproperties>
+<key id="Cardinality">1..2</key>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="26" type="ingenias.editor.entities.GTSatisfies">
+<object id="26" type="ingenias.editor.entities.GTSatisfies">
+<objectproperty id="SatisfactionCondition">
+</objectproperty>
+<objectproperty id="SatisfactionBeliefs" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="saludo_sch" class="ingenias.editor.entities.Scheme" roleName="GTSatisfiessource" type="ingenias.editor.entities.GTSatisfiessourceRole" dgcid="1668893136">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="saludar" class="ingenias.editor.entities.Goal" roleName="GTSatisfiestarget" type="ingenias.editor.entities.GTSatisfiestargetRole" dgcid="1581087485">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="27" type="ingenias.editor.entities.GTSatisfies">
+<object id="27" type="ingenias.editor.entities.GTSatisfies">
+<objectproperty id="SatisfactionCondition">
+</objectproperty>
+<objectproperty id="SatisfactionBeliefs" collection="true">
+</objectproperty>
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="saludar" class="ingenias.editor.entities.Goal" roleName="GTSatisfiestarget" type="ingenias.editor.entities.GTSatisfiestargetRole" dgcid="1581087485">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="m_saludar" class="ingenias.editor.entities.Mission" roleName="GTSatisfiessource" type="ingenias.editor.entities.GTSatisfiessourceRole" dgcid="1415258774">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="28" type="ingenias.editor.entities.WFParticipates">
+<object id="28" type="ingenias.editor.entities.WFParticipates">
+<mapproperties>
+<key id="TimeConstraint"></key>
+<key id="_view_type">INGENIAS</key>
+<key id="Deontic">obligation</key>
+<key id="Label"></key>
+<key id="Condition"></key>
+</mapproperties>
+</object>
+<role idEntity="saludador" class="ingenias.editor.entities.Role" roleName="WFParticipatessource" type="ingenias.editor.entities.WFParticipatessourceRole" dgcid="1552556228">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="m_saludar" class="ingenias.editor.entities.Mission" roleName="WFParticipatestarget" type="ingenias.editor.entities.WFParticipatestargetRole" dgcid="1415258774">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="29" type="ingenias.editor.entities.WFPlays">
+<object id="29" type="ingenias.editor.entities.WFPlays">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="WFPlayssource" type="ingenias.editor.entities.WFPlayssourceRole" dgcid="270572126">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="saludador" class="ingenias.editor.entities.Role" roleName="WFPlaystarget" type="ingenias.editor.entities.WFPlaystargetRole" dgcid="1552556228">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -948,6 +1160,29 @@
 	<node id="count" nid="853844679" type="FrameFact">
 
 	</node>
+			
+	<node id="env" nid="1085001054" type="Workspace">
+
+	</node>
+			
+	<node id="21" nid="162508856" type="EContainsArtifact">
+
+	<connected id="1085001054"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="1130711954">
+
+
+
+	</connected>
+	</node>
 	</graph>
 
 
@@ -980,6 +1215,18 @@
 	<node id="node2">
 		<attr name="bounds">
 			<rectangle x="544" y="136" width="41" height="45"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node5">
+		<attr name="bounds">
+			<rectangle x="612" y="291" width="63" height="70"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node6">
+		<attr name="bounds">
+			<rectangle x="392" y="272" width="100" height="15"></rectangle>		</attr>
 
 	</node>
 	</layout>
@@ -1276,19 +1523,19 @@
 			
 	<node id="node3">
 		<attr name="bounds">
-			<rectangle x="284" y="177" width="111" height="15"></rectangle>		</attr>
+			<rectangle x="283" y="179" width="111" height="15"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node2">
 		<attr name="bounds">
-			<rectangle x="339" y="184" width="0" height="0"></rectangle>		</attr>
+			<rectangle x="338" y="186" width="0" height="0"></rectangle>		</attr>
 
 	</node>
 			
 	<node id="node1">
 		<attr name="bounds">
-			<rectangle x="484" y="159" width="124" height="46"></rectangle>		</attr>
+			<rectangle x="481" y="163" width="124" height="46"></rectangle>		</attr>
 
 	</node>
 			
@@ -1503,6 +1750,313 @@
 	<node id="node3">
 		<attr name="bounds">
 			<rectangle x="333" y="57" width="0" height="0"></rectangle>		</attr>
+
+	</node>
+	</layout>
+</gxl> </model>
+ <model id="Team organisation" type="ingenias.editor.models.OrganizationModelModelJGraph">
+<object id="Team organisation" type="ingenias.editor.entities.OrganizationModelDataEntity">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+  <path>
+    <package id="Project"/>
+   </path>
+<gxl>
+
+	<graph>
+			
+	<node id="28" nid="1559310874" type="WFParticipates">
+
+	<connected id="1552556228"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="1415258774">
+
+
+
+	</connected>
+	</node>
+			
+	<node id="27" nid="1707499598" type="GTSatisfies">
+
+	<connected id="1415258774"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="1581087485">
+
+
+
+	</connected>
+	</node>
+			
+	<node id="saludador" nid="1552556228" type="Role">
+
+	</node>
+			
+	<node id="24" nid="1696229614" type="OHasWF">
+
+	<connected id="527316193"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="1668893136">
+
+
+
+	</connected>
+	</node>
+			
+	<node id="23" nid="764131637" type="OHasMember">
+
+	<connected id="1552556228"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+
+	</connected>
+	<connected id="126800961">
+
+
+
+		<attr name="labelposition">
+			<point x="803.7321797830995" y="-6.739802778162861"></point>
+		</attr>
+
+
+
+		<attr name="points">
+			<list>
+		<attr name="points0">
+			<point x="710.0" y="134.0418994413408"></point>
+		</attr>
+		<attr name="points1">
+			<point x="623.0" y="133.06983240223462"></point>
+		</attr>
+
+</list>
+		</attr>
+
+	</connected>
+	</node>
+			
+	<node id="Greeter" nid="270572126" type="Agent">
+
+	</node>
+			
+	<node id="22" nid="976152301" type="OHasGroup">
+
+	<connected id="126800961"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+
+	</connected>
+	<connected id="527316193">
+
+
+	</connected>
+	</node>
+			
+	<node id="29" nid="2134586882" type="WFPlays">
+
+	<connected id="270572126"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="1552556228">
+
+
+
+	</connected>
+	</node>
+			
+	<node id="team" nid="126800961" type="OrganizationGroup">
+
+	</node>
+			
+	<node id="m_saludar" nid="1415258774" type="Mission">
+
+	</node>
+			
+	<node id="saludo_sch" nid="1668893136" type="Scheme">
+
+	</node>
+			
+	<node id="saludar" nid="1581087485" type="Goal">
+
+	</node>
+			
+	<node id="26" nid="222315057" type="GTSatisfies">
+
+	<connected id="1668893136"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="1581087485">
+
+
+
+	</connected>
+	</node>
+			
+	<node id="25" nid="2031687268" type="WFDecomposesWF">
+
+	<connected id="1415258774"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+
+	</connected>
+	<connected id="1668893136">
+
+
+	</connected>
+	</node>
+			
+	<node id="saludo_org" nid="527316193" type="Organization">
+
+	</node>
+	</graph>
+
+
+	<layout>
+			
+	<node id="node13">
+		<attr name="bounds">
+			<rectangle x="903" y="148" width="90" height="15"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node12">
+		<attr name="bounds">
+			<rectangle x="520" y="276" width="71" height="15"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node2">
+		<attr name="bounds">
+			<rectangle x="926" y="44" width="50" height="65"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node9">
+		<attr name="bounds">
+			<rectangle x="344" y="177" width="58" height="15"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node8">
+		<attr name="bounds">
+			<rectangle x="733" y="95" width="82" height="15"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node5">
+		<attr name="bounds">
+			<rectangle x="699" y="0" width="39" height="50"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node7">
+		<attr name="bounds">
+			<rectangle x="322" y="124" width="73" height="15"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node14">
+		<attr name="bounds">
+			<rectangle x="803" y="42" width="58" height="15"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node1">
+		<attr name="bounds">
+			<rectangle x="521" y="95" width="102" height="75"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node4">
+		<attr name="bounds">
+			<rectangle x="922" y="202" width="50" height="65"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node3">
+		<attr name="bounds">
+			<rectangle x="550" y="202" width="50" height="65"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node6">
+		<attr name="bounds">
+			<rectangle x="138" y="301" width="50" height="65"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node11">
+		<attr name="bounds">
+			<rectangle x="334" y="261" width="71" height="45"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node10">
+		<attr name="bounds">
+			<rectangle x="704" y="227" width="114" height="15"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node0">
+		<attr name="bounds">
+			<rectangle x="126" y="94" width="70" height="75"></rectangle>		</attr>
 
 	</node>
 	</layout>

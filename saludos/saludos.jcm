@@ -16,6 +16,8 @@ mas saludos {
 
 
 
+        roles: saludador in saludo_org.team
+
 
         join: env
 
@@ -38,5 +40,15 @@ mas saludos {
 
 
     // Moise organisations (Organization Model): their specifications are in src/org
+
+    organisation saludo_org : saludo_org.xml {
+        group saludo_org_group : saludo_org {
+            group team : team {
+                responsible-for: saludo_sch
+            }
+        }
+        scheme saludo_sch : saludo_sch
+    }
+
 
 }

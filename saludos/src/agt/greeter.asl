@@ -103,6 +103,8 @@
 
 // --- Roles this agent plays --------------------------------------------------
 
+// role saludador
+
 
 // --- Interaction protocols this agent participates in ------------------------
 
@@ -117,4 +119,8 @@
 // plans that JaCaMo needs to join workspaces, focus on artifacts and play roles
 { include("$jacamo/templates/common-cartago.asl") }
 { include("$jacamo/templates/common-moise.asl") }
+
+// it plays roles with norms: it commits to the missions it is obliged to and
+// achieves their goals (with its plans for them)
+{ include("$moise/asl/org-obedient.asl") }
 
