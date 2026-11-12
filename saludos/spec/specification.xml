@@ -123,44 +123,6 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </object>
-<object id="enviar_saludo_code" type="ingenias.editor.entities.INGENIASCodeComponent">
-<mapproperties>
-<key id="Language">AgentSpeak</key>
-<key id="Code">?mood(M);
-
-.broadcast(tell, saludo(M));
-
-.wait({+saludado})</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
-<object id="reglas_greeter" type="ingenias.editor.entities.INGENIASCodeComponent">
-<mapproperties>
-<key id="Language">AgentSpeak</key>
-<key id="Code">+saludo(_)[source(S)] : mood(happy)
-
-   &lt;- .print(&quot;Hola, &quot;, S, &quot;. Que alegria verte!&quot;);
-
-      .send(S, tell, respuesta(happy)).
-
- 
-
-+saludo(_)[source(S)] : mood(grumpy)
-
-   &lt;- .print(&quot;Hmpf... hola, &quot;, S, &quot;.&quot;);
-
-      .send(S, tell, respuesta(grumpy)).
-
- 
-
-+respuesta(M)[source(S)]
-
-   &lt;- .print(S, &quot; me ha respondido de humor &quot;, M);
-
-      +saludado.</key>
-<key id="_view_type">INGENIAS</key>
-</mapproperties>
-</object>
 <object id="start" type="ingenias.editor.entities.Goal">
 <mapproperties>
 <key id="MinAgents"></key>
@@ -262,6 +224,57 @@
       .wait(500);
 
       !saludar.</key>
+<key id="aslFile"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="AslCodeComponent0" type="ingenias.editor.entities.AslCodeComponent">
+<property id="aslFile"></property>
+<mapproperties>
+<key id="Language">AgentSpeak</key>
+<key id="Code">?mood(M);
+
+.broadcast(tell, saludo(M));
+
+.wait({+saludado})</key>
+<key id="aslFile"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="reglas_greeter" type="ingenias.editor.entities.AslCodeComponent">
+<property id="aslFile"></property>
+<mapproperties>
+<key id="Language">AgentSpeak</key>
+<key id="Code">+saludo(_)[source(S)] : mood(happy)
+
+   &lt;- .print(&quot;Hola, &quot;, S, &quot;. Que alegria verte!&quot;);
+
+      .send(S, tell, respuesta(happy)).
+
+ 
+
++saludo(_)[source(S)] : mood(grumpy)
+
+   &lt;- .print(&quot;Hmpf... hola, &quot;, S, &quot;.&quot;);
+
+      .send(S, tell, respuesta(grumpy)).
+
+ 
+
++respuesta(M)[source(S)]
+
+   &lt;- .print(S, &quot; me ha respondido de humor &quot;, M);
+
+      +saludado.</key>
+<key id="aslFile"></key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<object id="enviar_saludo_code" type="ingenias.editor.entities.AslCodeComponent">
+<property id="aslFile"></property>
+<mapproperties>
+<key id="Language">AgentSpeak</key>
+<key id="Code"></key>
 <key id="aslFile"></key>
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
@@ -477,6 +490,40 @@
 <key id="_view_type">INGENIAS</key>
 </mapproperties>
 </role><role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="368187949">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="20" type="ingenias.editor.entities.CDUsesCode">
+<object id="20" type="ingenias.editor.entities.CDUsesCode">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="reglas_greeter" class="ingenias.editor.entities.AslCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="1539414213">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="Greeter" class="ingenias.editor.entities.Agent" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="368187949">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role></relationship>
+<relationship id="19" type="ingenias.editor.entities.CDUsesCode">
+<object id="19" type="ingenias.editor.entities.CDUsesCode">
+<mapproperties>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</object>
+<role idEntity="enviar_saludo" class="ingenias.editor.entities.Task" roleName="CDUsesCodesource" type="ingenias.editor.entities.CDUsesCodesourceRole" dgcid="679054462">
+<mapproperties>
+<key id="attributeToShow">0</key>
+<key id="_view_type">INGENIAS</key>
+</mapproperties>
+</role><role idEntity="enviar_saludo_code" class="ingenias.editor.entities.AslCodeComponent" roleName="CDUsesCodetarget" type="ingenias.editor.entities.CDUsesCodetargetRole" dgcid="1782032395">
 <mapproperties>
 <key id="attributeToShow">0</key>
 <key id="_view_type">INGENIAS</key>
@@ -953,6 +1000,29 @@
 	</connected>
 	</node>
 			
+	<node id="20" nid="1502655684" type="CDUsesCode">
+
+	<connected id="368187949"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="1539414213">
+
+
+
+	</connected>
+	</node>
+			
+	<node id="reglas_greeter" nid="1539414213" type="AslCodeComponent">
+
+	</node>
+			
 	<node id="Greeter" nid="368187949" type="Agent">
 
 	</node>
@@ -986,6 +1056,29 @@
 			
 	<node id="reglas_greeter" nid="1278075510" type="INGENIASCodeComponent">
 
+	</node>
+			
+	<node id="enviar_saludo_code" nid="1782032395" type="AslCodeComponent">
+
+	</node>
+			
+	<node id="19" nid="1081352985" type="CDUsesCode">
+
+	<connected id="679054462"><attr name="extraLabels">
+			<array>
+
+</array>
+</attr>
+
+
+
+
+	</connected>
+	<connected id="1782032395">
+
+
+
+	</connected>
 	</node>
 			
 	<node id="enviar_saludo_code" nid="563482363" type="INGENIASCodeComponent">
@@ -1025,6 +1118,18 @@
 
 	</node>
 			
+	<node id="node10">
+		<attr name="bounds">
+			<rectangle x="698" y="231" width="81" height="15"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node9">
+		<attr name="bounds">
+			<rectangle x="893" y="169" width="146" height="72"></rectangle>		</attr>
+
+	</node>
+			
 	<node id="node6">
 		<attr name="bounds">
 			<rectangle x="544" y="240" width="39" height="50"></rectangle>		</attr>
@@ -1052,6 +1157,18 @@
 	<node id="node7">
 		<attr name="bounds">
 			<rectangle x="812" y="190" width="177" height="57"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node11">
+		<attr name="bounds">
+			<rectangle x="569" y="24" width="146" height="72"></rectangle>		</attr>
+
+	</node>
+			
+	<node id="node12">
+		<attr name="bounds">
+			<rectangle x="367" y="63" width="81" height="15"></rectangle>		</attr>
 
 	</node>
 			
