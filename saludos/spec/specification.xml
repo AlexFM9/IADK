@@ -293,7 +293,7 @@
 <key id="Language">AgentSpeak</key>
 <key id="Code">+saludo(_)[source(S)] : mood(happy)
 
-   &lt;- .print(&quot;Hola, &quot;, S, &quot;. Que alegria verte!&quot;);
+   &lt;- .print(&quot;Holiss, &quot;, S, &quot;. Me alegro mucho muchisimo de verte hoy!&quot;);
 
       .send(S, tell, respuesta(happy)).
 

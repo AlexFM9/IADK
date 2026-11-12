@@ -62,7 +62,7 @@
 //#start_node:Greeter <--- DO NOT REMOVE THIS
 +saludo(_)[source(S)] : mood(happy)
 
-   <- .print("Hola, ", S, ". Que alegria verte!");
+   <- .print("Holiss, ", S, ". Me alegro mucho muchisimo de verte hoy!");
 
       .send(S, tell, respuesta(happy)).
 
