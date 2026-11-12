@@ -1,0 +1,108 @@
+================================================================================
+TRAZAS DE EJECUCIÓN - SISTEMAS BASADOS EN AGENTES (PRÁCTICA SEMANA 8)
+Grupo: G22
+Integrantes: Carlos Guevara Ramilo, Damian Gonzalez Sarmiento, Carlota Marra Rodriguez, Alexander Fontán Moreira
+================================================================================
+
+--------------------------------------------------------------------------------
+BLOQUE 0: Arranque (Hello world con un agente greeter)
+--------------------------------------------------------------------------------
+[greeter] join workspace /main/env: done
+[greeter] focus on counter: done
+[greeter] Hello world!
+[greeter] The counter is now 1
+
+--------------------------------------------------------------------------------
+BLOQUE 1: Dos agentes y su estado de ánimo (Operación atómica turno(N))
+--------------------------------------------------------------------------------
+[Cartago] Workspace env created.
+[Cartago] artifact counter: tools.Counter() at env created.
+[greeter1] join workspace /main/env: done
+[greeter2] join workspace /main/env: done
+[greeter1] focus on counter: done
+[greeter2] focus on counter: done
+[greeter2] Me despierto happy
+[greeter1] Me despierto grumpy
+
+--------------------------------------------------------------------------------
+BLOQUE 2: Saludos que dependen del ánimo
+--------------------------------------------------------------------------------
+[Cartago] Workspace env created.
+[Cartago] artifact counter: tools.Counter() at env created.
+[greeter2] join workspace /main/env: done
+[greeter1] join workspace /main/env: done
+[greeter2] focusing on artifact counter (at workspace /main/env) using namespace default
+[greeter1] focusing on artifact counter (at workspace /main/env) using namespace default
+[greeter2] focus on counter: done
+[greeter1] focus on counter: done
+[greeter1] Me despierto grumpy
+[greeter2] Me despierto happy
+[greeter2] Hola, greeter1. Que alegria verte!
+[greeter1] Hmpf... hola, greeter2.
+[greeter1] greeter2 me ha respondido de humor happy
+[greeter2] greeter1 me ha respondido de humor grumpy
+
+--------------------------------------------------------------------------------
+BLOQUE 3: Workspace y organización (Moise: saludo_org, team, saludador, m_saludar)
+--------------------------------------------------------------------------------
+[Moise] OrgBoard saludo_org created.
+[Moise] scheme created: saludo_sch: saludo_sch using artifact SchemeBoard
+[Moise] group created: saludo_org_group: saludo_org using artifact ora4mas.nopl.GroupBoard
+[Moise] group created: team: team using artifact ora4mas.nopl.GroupBoard
+[Cartago] Workspace env created.
+[Cartago] artifact counter: tools.Counter() at env created.
+[greeter1] join workspace /main/env: done
+[greeter2] join workspace /main/env: done
+[greeter2] focusing on artifact counter (at workspace /main/env) using namespace default
+[greeter1] focusing on artifact counter (at workspace /main/env) using namespace default
+[greeter1] focus on counter: done
+[greeter2] focus on counter: done
+[greeter1] focusing on artifact team (at workspace /main/saludo_org) using namespace default
+[greeter2] focusing on artifact team (at workspace /main/saludo_org) using namespace default
+[greeter1] focus on team: done
+[greeter2] focus on team: done
+[greeter1] focusing on artifact saludo_org (at workspace /main/saludo_org) using namespace default
+[greeter2] focusing on artifact saludo_org (at workspace /main/saludo_org) using namespace default
+[greeter1] focus on saludo_org: done
+[greeter2] focus on saludo_org: done
+[greeter1] Me despierto happy
+[greeter1] I am obliged to commit to m_saludar on saludo_sch... doing so
+[greeter2] I am obliged to commit to m_saludar on saludo_sch... doing so
+[greeter2] Me despierto grumpy
+[greeter2] Hmpf... hola, greeter1.
+[greeter1] Hola, greeter2. Que alegria verte!
+[greeter1] greeter2 me ha respondido de humor grumpy
+[greeter2] greeter1 me ha respondido de humor happy
+
+--------------------------------------------------------------------------------
+BLOQUE 4: Cambiar el código y subirlo al modelo (Saludo personalizado sincronizado)
+--------------------------------------------------------------------------------
+[Moise] OrgBoard saludo_org created.
+[Moise] scheme created: saludo_sch: saludo_sch using artifact SchemeBoard
+[Moise] group created: saludo_org_group: saludo_org using artifact ora4mas.nopl.GroupBoard
+[Moise] group created: team: team using artifact ora4mas.nopl.GroupBoard
+[Cartago] Workspace env created.
+[Cartago] artifact counter: tools.Counter() at env created.
+[greeter1] join workspace /main/env: done
+[greeter2] join workspace /main/env: done
+[greeter1] focusing on artifact counter (at workspace /main/env) using namespace default
+[greeter2] focusing on artifact counter (at workspace /main/env) using namespace default
+[greeter2] focus on counter: done
+[greeter1] focus on counter: done
+[greeter2] focusing on artifact team (at workspace /main/saludo_org) using namespace default
+[greeter1] focusing on artifact team (at workspace /main/saludo_org) using namespace default
+[greeter2] focus on team: done
+[greeter1] focus on team: done
+[greeter1] focusing on artifact saludo_org (at workspace /main/saludo_org) using namespace default
+[greeter2] focusing on artifact saludo_org (at workspace /main/saludo_org) using namespace default
+[greeter1] focus on saludo_org: done
+[greeter2] focus on saludo_org: done
+[greeter1] Me despierto happy
+[greeter2] I am obliged to commit to m_saludar on saludo_sch... doing so
+[greeter1] I am obliged to commit to m_saludar on saludo_sch... doing so
+[greeter2] Me despierto grumpy
+[greeter2] Hmpf... hola, greeter1.
+[greeter1] Holiss, greeter2. Me alegro mucho muchisimo de verte hoy!
+[greeter1] greeter2 me ha respondido de humor grumpy
+[greeter2] greeter1 me ha respondido de humor happy
+================================================================================

@@ -10,6 +10,9 @@
 # Herramienta local (no subir al repositorio)
 IADK-1.0-AgentSpeak/
 
+# Documentos PDF locales (enunciados y guías)
+*.pdf
+
 # Archivos comprimidos pesados
 *.rar
 *.zip
