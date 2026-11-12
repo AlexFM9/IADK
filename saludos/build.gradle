@@ -1,0 +1,33 @@
+// JaCaMo project saludos, generated once by the IDK (AgentSpeak profile).
+//     ./gradlew run      runs the application (saludos.jcm)
+//     ./gradlew build    compiles the artifacts and internal actions
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://raw.githubusercontent.com/jacamo-lang/mvn-repo/master' }
+    maven { url = 'https://repo.gradle.org/gradle/libs-releases' }
+}
+
+dependencies {
+    implementation 'org.jacamo:jacamo:1.3.0'
+}
+
+sourceSets {
+    main {
+        java { srcDirs = ['src/env', 'src/agt', 'src/org', 'src/java'] }
+        resources { srcDirs = ['src/resources'] }
+    }
+}
+
+tasks.register('run', JavaExec) {
+    group = 'JaCaMo'
+    description = 'Runs the JaCaMo application saludos.jcm'
+    dependsOn 'classes'
+    mainClass = 'jacamo.infra.JaCaMoLauncher'
+    args 'saludos.jcm'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+}

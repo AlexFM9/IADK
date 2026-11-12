@@ -1,0 +1,17 @@
+# Compilación y cachés de Gradle
+.gradle/
+**/build/
+**/.gradle/
+
+# Herramienta local (no subir al repositorio)
+IADK-1.0-AgentSpeak/
+
+# Archivos comprimidos pesados
+*.rar
+*.zip
+
+# Archivos de sistema / IDE
+.DS_Store
+Thumbs.db
+.idea/
+*.iml
